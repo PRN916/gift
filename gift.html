@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise Gift 🎀</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #ff69b4;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: pop 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    .message {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .upload-box {
+      background-color: #fff;
+      border: 2px dashed #ffb6c1;
+      padding: 20px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ffb6c1;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎁 A Little Surprise Just for You 💖</h1>
+  <div class="message">
+    Hey beautiful 🌸<br>
+    You light up my world like nobody else ✨<br>
+    Here's a space just for your smile 😊
+  </div>
+
+  <div class="upload-box">
+    <p>📸 Upload your favorite photo here:</p>
+    <input type="file" accept="image/*" onchange="previewImage(event)">
+    <br>
+    <img id="preview" src="" alt="Your Image Will Appear Here">
+  </div>
+
+  <script>
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        document.getElementById('preview').src = reader.result;
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
+</body>
+</html>
